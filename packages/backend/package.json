@@ -1,7 +1,10 @@
 {
-  "name": "backend",
+  "name": "@repo/convex",
   "version": "1.0.0",
   "description": "",
+  "exports": {
+    "./convex/*": "./convex/*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "convex dev",
@@ -11,9 +14,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@auth/core": "0.37.0",
     "@convex-dev/agent": "^0.1.15",
+    "@convex-dev/auth": "catalog:",
     "@convex-dev/resend": "^0.1.4",
-    "convex": "^1.25.4",
-    "convex-helpers": "^0.1.99"
+    "convex": "catalog:",
+    "convex-helpers": "catalog:",
+    "typescript": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
   }
 }
