@@ -5,6 +5,7 @@ import { ConvexAuthNextjsProvider } from "@convex-dev/auth/nextjs";
 import { makeUseQueryWithStatus } from "convex-helpers/react";
 import { useQueries } from "convex/react";
 import { ConvexQueryCacheProvider } from "convex-helpers/react/cache";
+import { ThemeProvider } from "next-themes";
 // Do this once somewhere, name it whatever you want.
 export const useQueryWithStatus = makeUseQueryWithStatus(useQueries);
 
@@ -12,8 +13,15 @@ const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
 export function ConvexClientProvider({ children }: { children: ReactNode }) {
   return (<ConvexAuthNextjsProvider client={convex}>
-    <ConvexQueryCacheProvider>
-      {children}
-    </ConvexQueryCacheProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <ConvexQueryCacheProvider>
+        {children}
+      </ConvexQueryCacheProvider>
+    </ThemeProvider>
   </ConvexAuthNextjsProvider>)
 }

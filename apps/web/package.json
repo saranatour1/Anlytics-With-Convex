@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000 --turbopack",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
@@ -21,9 +21,11 @@
     "convex-helpers": "catalog:",
     "lucide-react": "^0.525.0",
     "next": "^15.3.0",
+    "next-themes": "^0.4.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss":"catalog:"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.0",
