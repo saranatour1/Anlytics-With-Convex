@@ -1,0 +1,5 @@
+// Example of default expor
+import { NextResponse, NextRequest } from 'next/server'
+export default function middleware(request:NextResponse) {
+  console.log(request)
+}

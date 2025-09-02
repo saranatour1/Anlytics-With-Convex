@@ -1,12 +1,26 @@
 'use client'
 import { Button } from "@repo/ui/components/ui/button"
-import React from "react"
+import { useRouter } from "next/navigation"
+import React, { useState } from "react"
+
+// TODO: move this to seperate file later
+// grab important data
+export const TOKEN_SCOPE = process.env.NEXT_PUBLIC_TOKEN_SCOPE
+export const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID;
+export const REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI 
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
-  return (<Button variant="secondary" className="w-full max-w-sm flex items-center justify-center" onClick={()=> console.log("Hi")}>
+  // we want to redirect users to the convex dashboard
+  const router = useRouter();
+
+  const navigateToConvexLogin =()=>{
+    router.push(`https://dashboard.convex.dev/oauth/authorize/${TOKEN_SCOPE}?&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI as string)}&response_type=code&state=pleaseWork`)
+  }
+
+  return (<Button variant="secondary" className="w-full max-w-sm flex items-center justify-center" onClick={navigateToConvexLogin}>
     <ConvexSVG className="size-8"/>
     <span className="text-secondary-foreground">Sign up with Convex</span>
   </Button>)
