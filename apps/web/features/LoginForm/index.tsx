@@ -17,7 +17,7 @@ export function LoginForm({
   const router = useRouter();
 
   const navigateToConvexLogin =()=>{
-    router.push(`https://dashboard.convex.dev/oauth/authorize/${TOKEN_SCOPE}?&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI as string)}&response_type=code&state=pleaseWork`)
+    router.push(`https://dashboard.convex.dev/oauth/authorize/${TOKEN_SCOPE}?&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI as string)}&response_type=code`)
   }
 
   return (<Button variant="secondary" className="w-full max-w-sm flex items-center justify-center" onClick={navigateToConvexLogin}>
